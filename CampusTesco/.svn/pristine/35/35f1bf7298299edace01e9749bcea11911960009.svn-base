@@ -1,0 +1,8 @@
+package com.example.mylibrary.model;
+
+import com.example.commonlibrary.interfaces.OnCallBackListener;
+import com.example.commonlibrary.model.BaseModel;
+
+public interface LoginModel  extends BaseModel{
+    void postMsg(OnCallBackListener callBackListener,String phoneNumber);
+}

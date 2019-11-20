@@ -1,0 +1,146 @@
+package com.example.mylibrary.fragment;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.commonlibrary.base.BaseFragment;
+import com.example.commonlibrary.presenter.BasePresenter;
+
+import com.example.mylibrary.Adapater.NewsAdapter;
+import com.example.mylibrary.Adapater.ThingsAdapter;
+import com.example.mylibrary.News;
+import com.example.mylibrary.R.drawable;
+import com.example.mylibrary.R;
+import com.example.mylibrary.Things;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Route(path = "/my/ActivityFragment")
+public class ActivityFragment extends BaseFragment implements View.OnClickListener{
+    private static ActivityFragment mActivityFragment;
+    private TextView mText;
+    private List<News> newsList=new ArrayList<>();
+    private List<Things> thingsList=new ArrayList<>();
+
+    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState){
+        View view=inflater.inflate(R.layout.activity_fragment,container,false);
+
+        initNews();
+        RecyclerView recyclerViewTwo=(RecyclerView)view.findViewById(R.id.recycler_view3);
+        LinearLayoutManager layoutManagerTwo=new LinearLayoutManager(getActivity());
+        layoutManagerTwo.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerViewTwo.setLayoutManager(layoutManagerTwo);
+        NewsAdapter adapterTwo=new NewsAdapter(newsList);
+        recyclerViewTwo.setAdapter(adapterTwo);
+
+        initThings();
+        RecyclerView recyclerView1=(RecyclerView)view.findViewById(R.id.recycler_view4);
+        StaggeredGridLayoutManager layoutManager1=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView1.setLayoutManager(layoutManager1);
+        ThingsAdapter adapter1=new ThingsAdapter(thingsList);
+        recyclerView1.setAdapter(adapter1);
+
+        return view;
+    }
+
+    private void initNews(){
+        News one=new News(R.drawable.news2);
+        newsList.add(one);
+        News two=new News(R.drawable.news2);
+        newsList.add(two);
+        News three=new News(R.drawable.news2);
+        newsList.add(three);
+        News four=new News(R.drawable.news2);
+        newsList.add(four);
+        News five=new News(R.drawable.news2);
+        newsList.add(five);
+
+
+    }
+
+    private void initThings(){
+        Things bottle1=new Things("整理衣柜神奇衣物收纳置物架家用",drawable.yijia,"$10");
+        thingsList.add(bottle1);
+        Things bottle2=new Things("waitmore设计感女小众轻熟锁骨上衣吊带一字肩",R.drawable.cloth,"$20");
+        thingsList.add(bottle2);
+        Things bottle3=new Things("整理衣柜神奇衣物收纳置物架家用",R.drawable.yijia,"$10");
+        thingsList.add(bottle3);
+        Things bottle4=new Things("waitmore设计感女小众轻熟锁骨上衣吊带一字肩",R.drawable.cloth,"$20");
+        thingsList.add(bottle4);
+        Things bottle5=new Things("整理衣柜神奇衣物收纳置物架家用",R.drawable.yijia,"$10");
+        thingsList.add(bottle5);
+        Things bottle6=new Things("waitmore设计感女小众轻熟锁骨上衣吊带一字肩",R.drawable.cloth,"$20");
+        thingsList.add(bottle6);
+        Things bottle7=new Things("整理衣柜神奇衣物收纳置物架家用",R.drawable.yijia,"$10");
+        thingsList.add(bottle7);
+        Things bottle8=new Things("waitmore设计感女小众轻熟锁骨上衣吊带一字肩",R.drawable.cloth,"$20");
+        thingsList.add(bottle8);
+        Things bottle9=new Things("整理衣柜神奇衣物收纳置物架家用",R.drawable.yijia,"$10");
+        thingsList.add(bottle9);
+
+
+
+    }
+
+
+    public static ActivityFragment newInstance(String param1) {
+        mActivityFragment = new ActivityFragment();
+        Bundle args = new Bundle();
+        args.putString("agrs1", param1);
+        mActivityFragment.setArguments(args);
+        return mActivityFragment;
+    }
+    public ActivityFragment(){
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.tv_test) {
+            ARouter.getInstance().build("/my/MyFragment")
+                    .withLong("key1", 666L)
+                    .withString("key2", "这是从社区界面传递过来的")
+                    .navigation(getActivity(), 1002);
+        }
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 1002) {
+            String arg2 = data.getStringExtra("arg2");
+            Toast.makeText(getActivity(), arg2, Toast.LENGTH_SHORT).show();
+            mText.setText(arg2);
+        }
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    protected int initLayoutInflater() {
+        return R.layout.activity_fragment;
+    }
+
+    @Override
+    public void initView(View view) {
+        mText=view.findViewById(R.id.tv_test);
+    }
+
+    @Override
+    public void initData() {
+        mText.setOnClickListener(this);
+    }
+}

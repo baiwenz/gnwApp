@@ -1,0 +1,10 @@
+package com.example.mylibrary;
+
+public class News {
+    private int imageStyle;
+    public News(int imageStyle){
+        this.imageStyle=imageStyle;
+
+    }
+    public int getImageStyle(){return imageStyle;}
+}

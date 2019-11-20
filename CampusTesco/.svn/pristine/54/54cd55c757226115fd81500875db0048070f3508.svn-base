@@ -1,0 +1,90 @@
+package com.example.homelibrary.Adapater;
+
+import android.content.Context;
+import android.graphics.Paint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.commonlibrary.base.UrlConfig;
+import com.example.homelibrary.R;
+import com.example.commonlibrary.bean.Goods;
+import java.util.List;
+
+
+public class GusYouLikeAdapater extends BaseAdapter {
+    private Context context;
+    private List<Goods> goodsList;
+    private ViewHolder viewHolder;
+    public GusYouLikeAdapater(Context context, List<Goods> goodsList) {
+        this.context = context;
+        this.goodsList = goodsList;
+    }
+    @Override
+    public int getCount() {
+        return this.goodsList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return goodsList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final Goods goods = goodsList.get(position);
+        if(convertView==null){
+            viewHolder = new ViewHolder();
+            convertView= LayoutInflater.from(context).inflate(R.layout.list_gus_you_like_item,null);
+            viewHolder.iteam_gus_you_like=convertView.findViewById(R.id.iteam_gus_you_like);
+            viewHolder.gus_shop_img=convertView.findViewById(R.id.gus_shop_img);
+            viewHolder.gus_good_name=convertView.findViewById(R.id.gus_good_name);
+            viewHolder.gus_shop_last_price=convertView.findViewById(R.id.gus_shop_last_price);
+            viewHolder.gus_shop_now_price=convertView.findViewById(R.id.gus_shop_now_price);
+            viewHolder.gus_shop_decscripe=convertView.findViewById(R.id.gus_shop_decscripe);
+            viewHolder.gus_shop_name=convertView.findViewById(R.id.gus_shop_name);
+            convertView.setTag(viewHolder);
+        }else {
+            viewHolder=(ViewHolder)convertView.getTag();
+        }
+        Glide.with(context).load(UrlConfig.BASEURL+goods.getGoodSrc()).skipMemoryCache(true)
+                .diskCacheStrategy( DiskCacheStrategy.NONE ).override(72,72).into(viewHolder.gus_shop_img);
+        viewHolder.gus_good_name.setText(goods.getGoodName().trim());
+        viewHolder.gus_shop_name.setText(goods.getBelongShopID().trim());
+        viewHolder.gus_shop_decscripe.setText(goods.getGoodDesc().trim());
+        viewHolder.gus_shop_last_price.setText("￥"+String.valueOf(goods.getGooPrice()));
+        viewHolder.gus_shop_last_price.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+        viewHolder.gus_shop_now_price.setText("￥"+String.valueOf(goods.getGoodNowPrice()));
+        viewHolder.iteam_gus_you_like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/home/HomeActivity")
+                        .withObject("good",goods)
+                        .navigation();
+            }
+        });
+        return convertView;
+    }
+    private class ViewHolder{
+        LinearLayout iteam_gus_you_like;
+        ImageView gus_shop_img;
+        TextView gus_good_name;
+        TextView gus_shop_last_price;
+        TextView gus_shop_now_price;
+        TextView gus_shop_decscripe;
+        TextView gus_shop_name;
+    }
+}

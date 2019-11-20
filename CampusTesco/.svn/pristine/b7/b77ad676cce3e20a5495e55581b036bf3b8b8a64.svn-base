@@ -1,0 +1,80 @@
+package com.example.mylibrary.fragment.login;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.commonlibrary.ARouter.Constance;
+import com.example.commonlibrary.base.BaseFragment;
+import com.example.commonlibrary.bean.Message;
+import com.example.mylibrary.R;
+import com.example.mylibrary.fragment.CommunityFragment;
+import com.example.mylibrary.presenter.LoginPressenter;
+import com.example.mylibrary.view.ILoginView;
+@Route(path = "/my/login/LoginFragment")
+public class LoginFragment extends BaseFragment<ILoginView, LoginPressenter<ILoginView>> implements ILoginView,View.OnClickListener{
+    private static LoginFragment loginFragment;
+    private Button mGotoReg;
+
+    public static LoginFragment newInstance(String param1) {
+        loginFragment = new LoginFragment();
+        Bundle args = new Bundle();
+        args.putString("agrs1", param1);
+        loginFragment.setArguments(args);
+        return loginFragment;
+    }
+    public LoginFragment(){
+
+    }
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.gotoregister) {
+            ARouter.getInstance().build( Constance.LOGIN_ACTIVITY)
+                    .withInt("view", 1)
+                    .navigation(getActivity(), 1002);
+        }
+    }
+
+    @Override
+    protected LoginPressenter<ILoginView> createPresenter() {
+        return null;
+    }
+
+    @Override
+    protected int initLayoutInflater() {
+        return R.layout.layout_login;
+    }
+
+    @Override
+    public void initView(View view) {
+        mGotoReg=view.findViewById(R.id.gotoregister);
+    }
+
+    @Override
+    public void initData() {
+        mGotoReg.setOnClickListener(this);
+    }
+
+    @Override
+    public void Code(Message message) {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading(boolean b) {
+
+    }
+
+    @Override
+    public void onError(Object result) {
+
+    }
+}

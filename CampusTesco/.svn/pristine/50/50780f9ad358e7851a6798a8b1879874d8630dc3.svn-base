@@ -1,0 +1,21 @@
+package com.example.homelibrary;
+
+public class Things {
+    private String name;
+    private int imageId;
+    private String price;
+    public Things(String name, int imageId,String price){
+        this.name=name;
+        this.imageId=imageId;
+        this.price=price;
+    }
+    public String getName(){
+        return name;
+    }
+    public int getImageId() {
+        return imageId;
+    }
+    public String getPrice(){
+        return price;
+    }
+}

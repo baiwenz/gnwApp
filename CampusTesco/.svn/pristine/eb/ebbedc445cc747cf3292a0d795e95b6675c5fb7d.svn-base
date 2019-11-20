@@ -1,0 +1,51 @@
+package com.example.homelibrary.Adapater;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.homelibrary.Goods;
+import com.example.homelibrary.R;
+import com.example.homelibrary.Things;
+
+import java.util.List;
+
+public class ThingsAdapter extends RecyclerView.Adapter<ThingsAdapter.ViewHolder>  {
+    private List<Things> mThingsList;
+    static class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView thingsImage;
+        TextView thingsName;
+        TextView thingsPrice;
+        public ViewHolder(View view){
+            super(view);
+            thingsImage=(ImageView)view.findViewById(R.id.things_image);
+            thingsName=(TextView)view.findViewById(R.id.things_name);
+            thingsPrice=(TextView)view.findViewById(R.id.things_price);
+
+        }
+    }
+    public ThingsAdapter(List<Things> thingsList){
+        mThingsList=thingsList;
+    }
+
+    @Override
+    public ThingsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.thing_item,parent,false);
+        ThingsAdapter.ViewHolder holder=new ThingsAdapter.ViewHolder(view);
+        return holder;
+    }
+    @Override
+    public void onBindViewHolder(ThingsAdapter.ViewHolder holder, int position){
+        Things things=mThingsList.get(position);
+        holder.thingsImage.setImageResource(things.getImageId());
+        holder.thingsName.setText(things.getName());
+        holder.thingsPrice.setText(things.getPrice());
+    }
+    @Override
+    public int getItemCount(){
+        return mThingsList.size();
+    }
+}

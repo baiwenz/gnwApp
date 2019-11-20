@@ -1,0 +1,6 @@
+package com.example.mylibrary.presenter;
+
+import com.example.commonlibrary.presenter.BasePresenter;
+
+public class MyPresenter extends BasePresenter{
+}

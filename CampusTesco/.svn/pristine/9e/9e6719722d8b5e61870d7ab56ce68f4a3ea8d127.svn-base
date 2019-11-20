@@ -1,0 +1,8 @@
+package com.example.mylibrary.view;
+
+import com.example.commonlibrary.bean.Message;
+import com.example.commonlibrary.view.BaseView;
+
+public interface ILoginView<T> extends BaseView<T>{
+    void Code(Message message);
+}
