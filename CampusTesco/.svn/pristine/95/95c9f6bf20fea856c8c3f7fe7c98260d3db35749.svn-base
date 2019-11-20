@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">MyLibrary</string>
-    <string name="my_library_name">我的</string>
-    <string name="community_name">社区</string>
-    <string name="order_name">历史订单</string>
-    <string name="activity_name">活动</string>
-    <string name="login">登            录</string>
-    <string name="community">社区</string>
-</resources>
