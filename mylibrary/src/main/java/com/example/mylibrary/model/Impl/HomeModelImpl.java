@@ -1,10 +1,8 @@
 package com.example.mylibrary.model.Impl;
 
-import android.widget.Toast;
+import android.util.Log;
 
-import com.example.commonlibrary.base.UrlConfig;
-import com.example.commonlibrary.bean.ApiResult;
-import com.example.commonlibrary.bean.Goods;
+import com.example.commonlibrary.bean.Repo;
 import com.example.commonlibrary.http.RetrofitUtils;
 import com.example.commonlibrary.interfaces.OnRequestCallBackListener;
 import com.example.commonlibrary.interfaces.OnCallBackListener;
@@ -16,27 +14,23 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class HomeModelImpl implements HomeModel {
     @Override
     public void loadDate(final OnCallBackListener callBackListener) {
 
-        RetrofitUtils.get(UrlConfig.NEWS_URL, new OnRequestCallBackListener<String>() {
+        RetrofitUtils.getRxRepos("octocat", new OnRequestCallBackListener<Object>() {
 
             @Override
-            public void onSuccess(String body, String tag) {
-                Type type = new TypeToken<ArrayList<Goods>>() {}.getType();
-                Gson gson = new Gson();
-                List<Goods> goodsList = gson.fromJson(body,type);
-                ApiResult apiResult = new ApiResult();
-                apiResult.setGoods(goodsList);
-                callBackListener.onSuccess(apiResult);
+            public void onSuccess(Object body, String tag) {
+                System.out.println(body);
+                callBackListener.onSuccess(null);
             }
             @Override
             public void onFailed(String e, String tag) {
+
+                Log.e("", e);
 
             }
         });

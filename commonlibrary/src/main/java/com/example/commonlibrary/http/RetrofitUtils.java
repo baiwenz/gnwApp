@@ -5,9 +5,6 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.commonlibrary.base.UrlConfig;
-import com.example.commonlibrary.base.UrlConfig;
-import com.example.commonlibrary.bean.ApiResult;
-import com.example.commonlibrary.interfaces.OnCallBackListener;
 import com.example.commonlibrary.interfaces.OnRequestCallBackListener;
 
 import java.io.File;
@@ -17,11 +14,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
-import io.reactivex.Observable;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.internal.observers.DisposableLambdaObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
 import okhttp3.Cache;
@@ -32,11 +26,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Call;
 import retrofit2.CallAdapter;
-import retrofit2.Callback;
 import retrofit2.Converter;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -300,7 +291,32 @@ public class RetrofitUtils {
      * 根据当前的请求参数，生成对应的Retrofit
      */
     private Retrofit.Builder generateRetrofit() {
+
+
+
+
+
+        OkHttpClient.Builder builder = new OkHttpClient.Builder()
+                // 设置连接超市时间
+                .connectTimeout(10, TimeUnit.SECONDS)
+                // 设置读超时时间
+                .readTimeout(15, TimeUnit.SECONDS)
+                // 设置写超时时间
+                .writeTimeout(15, TimeUnit.SECONDS).retryOnConnectionFailure(true);
+
+        // Log 拦截器
+        if (UrlConfig.DEBUG)
+        {
+
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+            builder.addInterceptor(logging);
+
+        }
+
+
         retrofitBuilder = getRetrofitBuilder()
+                .client(builder.build())
                 .baseUrl(checkNotNull(getBaseUrl(), "baseUrl == null"))
                 .addConverterFactory(mConverterFactory == null ? GsonConverterFactory.create() : mConverterFactory)
                 .addCallAdapterFactory(mCallAdapterFactory == null ? RxJava2CallAdapterFactory.create() : mCallAdapterFactory)
@@ -780,6 +796,10 @@ public class RetrofitUtils {
         if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
         }
+    }
+    public static void getRxRepos(String user, final OnRequestCallBackListener callBackListener) {
+        Flowable flowable = mBaseApiService.getRxRepos(user);
+        requestCallBack(flowable, "", callBackListener);
     }
 }
 

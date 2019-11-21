@@ -33,7 +33,7 @@ import butterknife.Unbinder;
  * @param <V>
  * @param <P>
  */
-public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCompatActivity {
+public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCompatActivity   {
     public String TAG = getClass().getSimpleName().toString();
     protected Context mContext;
     private Unbinder mUnbinder;
