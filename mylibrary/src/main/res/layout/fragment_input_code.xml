@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="30dp">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_register">
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input_phone"
+            android:layout_weight="1"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input_code"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="#ff6600"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_set_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_password"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:layout_marginLeft="5dp"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/ll_top"
+        android:text="@string/code_send_to"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/edt_input_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_show"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="请输入短信中的验证码"
+        android:textSize="20sp"
+        android:background="@drawable/bg_register"/>
+
+    <TextView
+        android:id="@+id/tv_code_fail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_input_code"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/code_fail"
+        android:textColor="#ff0033"/>
+
+    <Button
+        android:id="@+id/btn_get_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_code_fail"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/btn_submit_code"
+        android:background="@drawable/bg_btn"/>
+
+</RelativeLayout>

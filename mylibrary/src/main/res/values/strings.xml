@@ -15,4 +15,32 @@
     <string name="classify_qiezi">茄子</string>
     <string name="classify_nangua">南瓜</string>
     <string name="classify_kugua">苦瓜</string>
+
+    <!--登录注册相关页面start-->
+    <string name="account">用户名/邮箱/手机号</string>
+    <string name="password">密码</string>
+    <string name="btn_login">请登录</string>
+    <string name="register">手机快速注册</string>
+    <string name="forgot_pass">忘记密码</string>
+    <string name="login_byOther">第三方登录</string>
+
+    <string name="input_phone">1.输入手机号 ></string>
+    <string name="input_code">2.输入验证码 ></string>
+    <string name="set_password">3.设置密码</string>
+    <string name="btn_get_code">获取验证码</string>
+
+    <string name="code_send_to">验证码已发送到151****1275</string>
+    <string name="code_fail">验证码不正确</string>
+    <string name="btn_submit_code">提交验证码</string>
+
+    <string name="pwd_constraint">密码长度8-32位，须包含数字、字母、符号至少两种或以上元素</string>
+    <string name="btn_submit_confirm">确认提交</string>
+
+    <string name="verify_type">1.选择验证方式 ></string>
+    <string name="verify_safe">2.安全验证 ></string>
+    <string name="find_pwd">3.找回登录密码</string>
+    <string name="msg">短信</string>
+    <string name="start_verify">立即验证</string>
+    <!--登录注册相关页面end-->
+
 </resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="30dp">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_register">
+
+        <TextView
+            android:id="@+id/tv_verify_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verify_type"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="#ff6600"/>
+
+        <TextView
+            android:id="@+id/tv_verify_safe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verify_safe"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_find_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find_pwd"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@drawable/bg_white"
+       android:layout_marginTop="20dp">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/msg"
+           android:textSize="20sp"
+           android:layout_centerVertical="true"/>
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/start_verify"
+           android:textColor="#FF0033"
+           android:background="@drawable/bg_btn_start_verify"
+           android:layout_alignParentRight="true" />
+
+
+   </RelativeLayout>
+
+</LinearLayout>

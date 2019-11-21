@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="30dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_register">
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input_phone"
+            android:layout_weight="1"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input_code"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_set_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_password"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="#ff6600"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edt_input_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_top"
+        android:layout_marginTop="20dp"
+        android:hint="输入密码"
+        android:textSize="20sp"
+        android:background="@drawable/bg_set_pwd"/>
+
+    <EditText
+        android:id="@+id/edt_input_pwd_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_input_pwd"
+        android:layout_marginTop="20dp"
+        android:hint="确认密码"
+        android:textSize="20sp"
+        android:background="@drawable/bg_set_pwd"/>
+
+    <TextView
+        android:id="@+id/tv_pwd_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_input_pwd_confirm"
+        android:layout_marginTop="20dp"
+        android:text="@string/pwd_constraint" />
+
+    <Button
+        android:id="@+id/btn_submit_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_pwd_constraint"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_submit_confirm"
+        android:background="@drawable/bg_btn"/>
+
+</RelativeLayout>
