@@ -70,11 +70,14 @@ public class MainActivity extends BaseActivity {
         prepareFragments();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+//        navigation.setSelectedItemId(R.id.navigation_home);
     }
 
 
+    @Override
     public void initData() {
         showFragment(0);
+
     }
 
     private void prepareFragments() {
@@ -97,6 +100,8 @@ public class MainActivity extends BaseActivity {
             mMyFragment = MyFragment.newInstance("个人中心");
         }
         fragments.add(mMyFragment);
+
+
 
     }
 

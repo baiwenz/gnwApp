@@ -1,17 +1,15 @@
 package com.example.commonlibrary.http;
 
 
-import com.example.commonlibrary.bean.ApiResult;
+import com.example.commonlibrary.bean.Repo;
 
 import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Flowable;
-import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
-import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
@@ -23,6 +21,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Streaming;
@@ -32,6 +31,8 @@ import retrofit2.http.Url;
  * Created by yc on 2018/4/3.
  */
 public interface BaseApiService {
+    @GET("users/{user}/repos")
+    Flowable<List<Repo>> getRxRepos(@Path("user") String user);
 
     @GET()
     Flowable<ResponseBody> get(@Url String url);

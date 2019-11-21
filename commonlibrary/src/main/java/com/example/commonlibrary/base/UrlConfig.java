@@ -5,7 +5,7 @@ package com.example.commonlibrary.base;
  */
 
 public class UrlConfig {
-    public final static String BASEURL = "http://123.207.18.77:8080/";
-    public final static String NEWS_URL = "shopController/getGoods";
-    public final static String POST_MSG = "shopController/postMsg";
+    public final static String BASEURL = "https://api.github.com/";
+
+    public static final boolean DEBUG = true;
 }
