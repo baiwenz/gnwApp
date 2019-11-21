@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">贵农购</string>
-    <string name="title_home">首页</string>
-    <string name="title_shopcar">购物车</string>
-    <string name="title_message">消息</string>
-    <string name="title_persion">个人中心</string>
-</resources>
