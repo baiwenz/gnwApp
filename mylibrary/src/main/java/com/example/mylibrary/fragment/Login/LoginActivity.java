@@ -3,23 +3,17 @@ package com.example.mylibrary.fragment.Login;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.commonlibrary.ARouter.Constance;
-import com.example.commonlibrary.ARouter.LoginNavigationCallbackImpl;
 import com.example.commonlibrary.base.BaseActivity;
 import com.example.commonlibrary.presenter.BasePresenter;
 import com.example.mylibrary.R;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import static com.example.commonlibrary.base.Constants.loginCurrentFragment;
 
 public class LoginActivity extends BaseActivity{
+    private FragmentManager fragmentManager;
     private ArrayList<Fragment> fragments;
     private FragmentTransaction transaction;
     private Fragment fragment;
@@ -30,7 +24,7 @@ public class LoginActivity extends BaseActivity{
     private FragmentForgotPwd mFragmentForgotPwd;
     private FragmentVerifySafe mFragmentVerifySafe;
     private FragmentFindLoginPwd mFragmentFindLoginPwd; //找回登陆密码
-
+    private List<Integer> reBackFrement=new ArrayList<Integer>();
     private void prepareFragments() {
         fragments = new ArrayList<>();
 
@@ -74,26 +68,17 @@ public class LoginActivity extends BaseActivity{
     }
     public void showFragment(int position) {
         loginCurrentFragment = position;
-        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
         //先隐藏其他的
         for (int i = 0; i < fragments.size(); i++) {
             fragment = fragments.get(i);
             if (i == position) {
-                if (fragment.isAdded()) {
-                    transaction.show(fragment);
-                } else {
-                    //add
-                    transaction.add(R.id.fl_login, fragment);
-                }
-            } else {
-                if (fragment.isAdded()) {
-                    transaction.hide(fragment);
-                }
+                transaction.replace(R.id.fl_login,fragment);
+                if(i!=0) transaction.addToBackStack(null);
             }
         }
-        //commit
-        transaction.commitAllowingStateLoss();
+        transaction.commit();
 
     }
     @Override
@@ -114,5 +99,11 @@ public class LoginActivity extends BaseActivity{
     @Override
     public void initData() {
         showFragment(0);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
