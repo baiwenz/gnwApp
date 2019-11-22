@@ -9,7 +9,8 @@ import com.example.commonlibrary.base.BaseFragment;
 import com.example.commonlibrary.presenter.BasePresenter;
 import com.example.mylibrary.R;
 
-public class FragmentFindLoginPwd extends BaseFragment {
+public class FragmentFindLoginPwd extends BaseFragment implements View.OnClickListener{
+    private LoginActivity loginActivity;
     private static FragmentFindLoginPwd mFragmentFindLoginPwd;
 
     public static FragmentFindLoginPwd newInstance(String param1) {
@@ -21,6 +22,7 @@ public class FragmentFindLoginPwd extends BaseFragment {
     }
 
     public FragmentFindLoginPwd() {
+        loginActivity=(LoginActivity)getActivity();
     }
     @Override
     protected BasePresenter createPresenter() {
@@ -43,4 +45,8 @@ public class FragmentFindLoginPwd extends BaseFragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }

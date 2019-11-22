@@ -15,9 +15,10 @@ import com.example.commonlibrary.presenter.BasePresenter;
 import com.example.mylibrary.R;
 
 public class FragmentLogin extends BaseFragment implements View.OnClickListener {
-
+    private LoginActivity loginActivity;
     private static FragmentLogin mFragmentLogin;
-    private TextView mTv;
+    private TextView mRegister;
+    private TextView mForgotPwd;
 
     public static FragmentLogin newInstance(String param1) {
         mFragmentLogin = new FragmentLogin();
@@ -42,26 +43,22 @@ public class FragmentLogin extends BaseFragment implements View.OnClickListener 
 
     @Override
     public void initView(View view) {
-
-        mTv = view.findViewById(R.id.tv_register);
-        mTv.setOnClickListener(this);
-    }
-    public interface ToRegister{
-
-        void getXXXMethodForActivity();
-
+        loginActivity=(LoginActivity) getActivity();
+        mRegister = view.findViewById(R.id.tv_register);
+        mForgotPwd = view.findViewById(R.id.tv_forgot_pwd);
     }
     @Override
     public void initData() {
-
+        mRegister.setOnClickListener(this);
+        mForgotPwd.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
         if (view.getId() == R.id.tv_register){
-            LoginActivity loginActivity = (LoginActivity)getActivity();
             loginActivity.showFragment(1);
+        }else if(view.getId() == R.id.tv_forgot_pwd){
+            loginActivity.showFragment(4);
         }
     }
 }
