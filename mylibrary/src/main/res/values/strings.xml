@@ -43,4 +43,10 @@
     <string name="start_verify">立即验证</string>
     <!--登录注册相关页面end-->
 
+    <!--首页头部-->
+    <string  name="area_zunyi">遵义</string>
+    <string name="item_name">风骚大西瓜</string>
+    <string name="item_price_now">$85</string>
+    <string name="item_price_past">$100</string>
+    <string name="item_similar">找相似</string>
 </resources>
