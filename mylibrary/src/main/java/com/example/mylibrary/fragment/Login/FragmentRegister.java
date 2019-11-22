@@ -6,10 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.commonlibrary.ARouter.Constance;
 import com.example.commonlibrary.base.BaseFragment;
 import com.example.commonlibrary.presenter.BasePresenter;
 import com.example.mylibrary.R;
-
+@Route(path = Constance.REGISTER_FRAGMENT)
 public class FragmentRegister extends BaseFragment {
 
 

@@ -46,7 +46,11 @@ public class FragmentLogin extends BaseFragment implements View.OnClickListener 
         mTv = view.findViewById(R.id.tv_register);
         mTv.setOnClickListener(this);
     }
+    public interface ToRegister{
 
+        void getXXXMethodForActivity();
+
+    }
     @Override
     public void initData() {
 
@@ -56,10 +60,8 @@ public class FragmentLogin extends BaseFragment implements View.OnClickListener 
     public void onClick(View view) {
 
         if (view.getId() == R.id.tv_register){
-            ARouter.getInstance()
-                    .build(Constance.SEARCH_ACTIVITY)
-                    .navigation(getActivity(),new LoginNavigationCallbackImpl());
+            LoginActivity loginActivity = (LoginActivity)getActivity();
+            loginActivity.showFragment(1);
         }
-
     }
 }

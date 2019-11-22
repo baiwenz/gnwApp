@@ -14,4 +14,5 @@ public final class Constance {
     public static final String LOGIN_ACTIVITY="/my/LoginActivity";
     public static final String SEARCH_ACTIVITY="/home/SearchActivity";
     public static final String TEMP_PATH="/app/MainActivity";
+    public static final String REGISTER_FRAGMENT="/login/Register";
 }

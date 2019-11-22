@@ -2,17 +2,13 @@ package com.example.mylibrary.model.Impl;
 
 import android.util.Log;
 
-import com.example.commonlibrary.bean.Repo;
+import com.example.commonlibrary.base.UrlConfig;
 import com.example.commonlibrary.http.RetrofitUtils;
 import com.example.commonlibrary.interfaces.OnRequestCallBackListener;
 import com.example.commonlibrary.interfaces.OnCallBackListener;
+import com.example.commonlibrary.utils.Result;
 import com.example.mylibrary.bean.HomeBean;
 import com.example.mylibrary.model.HomeModel;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +16,12 @@ public class HomeModelImpl implements HomeModel {
     @Override
     public void loadDate(final OnCallBackListener callBackListener) {
 
-        RetrofitUtils.getRxRepos("octocat", new OnRequestCallBackListener<Object>() {
+        RetrofitUtils.get(UrlConfig.GET_MSG, new OnRequestCallBackListener<Result>() {
 
             @Override
-            public void onSuccess(Object body, String tag) {
-                System.out.println(body);
-                callBackListener.onSuccess(null);
+            public void onSuccess(Result result, String tag) {
+                System.out.println(result.toString());
+                callBackListener.onSuccess(result);
             }
             @Override
             public void onFailed(String e, String tag) {

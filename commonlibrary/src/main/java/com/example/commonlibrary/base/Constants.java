@@ -7,4 +7,5 @@ package com.example.commonlibrary.base;
 
 public class Constants {
     public static int currentFragment = 0;
+    public static int loginCurrentFragment=0;
 }

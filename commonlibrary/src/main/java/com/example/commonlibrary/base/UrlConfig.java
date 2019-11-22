@@ -5,7 +5,7 @@ package com.example.commonlibrary.base;
  */
 
 public class UrlConfig {
-    public final static String BASEURL = "https://api.github.com/";
-
+    public final static String BASEURL = "http://192.168.3.102:8080/";
+    public final static String GET_MSG = "getMsg";
     public static final boolean DEBUG = true;
 }

@@ -4,8 +4,10 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.alibaba.fastjson.JSON;
 import com.example.commonlibrary.base.UrlConfig;
 import com.example.commonlibrary.interfaces.OnRequestCallBackListener;
+import com.example.commonlibrary.utils.Result;
 
 import java.io.File;
 import java.util.HashMap;
@@ -743,8 +745,8 @@ public class RetrofitUtils {
             public void onNext(T body) {
                 try {
                     if (body instanceof ResponseBody) {
-                        String response = ((ResponseBody) body).string();
-                        callBackListener.onSuccess(response, tag);
+                        Result result = JSON.parseObject(((ResponseBody) body).string(),Result.class);
+                        callBackListener.onSuccess(result, tag);
                     } else {
                         callBackListener.onSuccess(body, tag);
                     }
@@ -796,10 +798,6 @@ public class RetrofitUtils {
         if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
         }
-    }
-    public static void getRxRepos(String user, final OnRequestCallBackListener callBackListener) {
-        Flowable flowable = mBaseApiService.getRxRepos(user);
-        requestCallBack(flowable, "", callBackListener);
     }
 }
 

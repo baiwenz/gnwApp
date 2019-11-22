@@ -6,18 +6,20 @@ import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.commonlibrary.ARouter.Constance;
+import com.example.commonlibrary.ARouter.LoginNavigationCallbackImpl;
 import com.example.commonlibrary.base.BaseActivity;
 import com.example.commonlibrary.presenter.BasePresenter;
 import com.example.mylibrary.R;
 
 import java.util.ArrayList;
-
-import static com.example.commonlibrary.base.Constants.currentFragment;
 import static com.example.commonlibrary.base.Constants.loginCurrentFragment;
 
 public class LoginActivity extends BaseActivity{
-
     private ArrayList<Fragment> fragments;
     private FragmentTransaction transaction;
     private Fragment fragment;
@@ -113,5 +115,4 @@ public class LoginActivity extends BaseActivity{
     public void initData() {
         showFragment(0);
     }
-
 }

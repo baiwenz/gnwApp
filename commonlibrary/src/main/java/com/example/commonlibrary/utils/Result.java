@@ -86,4 +86,14 @@ public class Result {
     public void setMessage(String message) {
         Message = message;
     }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "Code=" + Code +
+                ", Falg=" + Falg +
+                ", Data=" + Data +
+                ", Message='" + Message + '\'' +
+                '}';
+    }
 }

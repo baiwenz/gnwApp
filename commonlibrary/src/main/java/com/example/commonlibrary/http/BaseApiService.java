@@ -1,8 +1,5 @@
 package com.example.commonlibrary.http;
 
-
-import com.example.commonlibrary.bean.Repo;
-
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +18,6 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Streaming;
@@ -31,9 +27,6 @@ import retrofit2.http.Url;
  * Created by yc on 2018/4/3.
  */
 public interface BaseApiService {
-    @GET("users/{user}/repos")
-    Flowable<List<Repo>> getRxRepos(@Path("user") String user);
-
     @GET()
     Flowable<ResponseBody> get(@Url String url);
     @GET()

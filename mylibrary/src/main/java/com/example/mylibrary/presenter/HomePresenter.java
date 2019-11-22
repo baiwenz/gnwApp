@@ -1,8 +1,8 @@
 package com.example.mylibrary.presenter;
 
-import com.example.commonlibrary.bean.Repo;
 import com.example.commonlibrary.interfaces.OnCallBackListener;
 import com.example.commonlibrary.presenter.BasePresenter;
+import com.example.commonlibrary.utils.Result;
 import com.example.mylibrary.model.HomeModel;
 import com.example.mylibrary.model.Impl.HomeModelImpl;
 import com.example.mylibrary.view.IHomeView;
@@ -25,11 +25,11 @@ public class HomePresenter<T extends IHomeView> extends BasePresenter<T> {
         if (mTWeakReference.get() != null) {
             mTWeakReference.get().showLoading();
             if (mHomeModel != null) {
-                mHomeModel.loadDate(new OnCallBackListener<Repo>() {
+                mHomeModel.loadDate(new OnCallBackListener<Result>() {
 
                     @Override
-                    public void onSuccess(Repo apiResult) {
-                        mTWeakReference.get().showhome(apiResult);
+                    public void onSuccess(Result result) {
+                        mTWeakReference.get().showhome(result);
                     }
 
                     @Override
