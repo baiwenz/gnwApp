@@ -3,58 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_marginTop="40dp"
     android:layout_marginBottom="30dp">
+    <LinearLayout
+        android:id="@+id/rl_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <EditText
-            android:id="@+id/edt_account"
+            android:id="@+id/et_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/account"
-            android:layout_margin="10dp"
-            android:background="@drawable/bg_edt"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:textCursorDrawable="@drawable/my_curcor"
+            android:drawableBottom="@drawable/shape_edittext_bottom_line"
+            android:drawableLeft="@drawable/phone"
+            android:hint="请输入手机号"
+            android:inputType="number"
+            android:padding="5dp"
+            android:drawablePadding="5dp"
+            android:maxLength="11"/>
 
-        <RelativeLayout
-            android:id="@+id/rl_password"
+        <EditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edt_account">
-
-            <EditText
-                android:id="@+id/edt_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="@string/password"
-                android:background="@drawable/bg_edt"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/eye_pwd"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"/>
-        </RelativeLayout>
-
-        <Button
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:textCursorDrawable="@drawable/my_curcor"
+            android:drawableBottom="@drawable/shape_edittext_bottom_line"
+            android:drawableLeft="@drawable/lock"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:padding="5dp"
+            android:drawablePadding="5dp"
+            android:maxLength="16"/>
+        <com.dd.processbutton.iml.ActionProcessButton
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rl_password"
+            android:layout_marginBottom="@dimen/px5"
+            android:layout_marginTop="@dimen/px5"
             android:text="@string/btn_login"
-            android:textSize="24sp"
-            android:layout_margin="10dp"
-            android:background="@drawable/bg_btn"/>
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            custom:pb_colorComplete="@color/green_complete"
+            custom:pb_colorNormal="@color/blue_normal"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/purple_progress"
+            custom:pb_textComplete="登录成功"
+            custom:pb_textProgress="登录中"
+            custom:pb_textError="Error"
+            custom:pb_colorError="@color/red_error" />
+    </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/rl_register_forgot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_login"
+            android:layout_below="@id/rl_password"
             android:layout_margin="10dp">
-
             <TextView
                 android:id="@+id/tv_register"
                 android:layout_width="wrap_content"

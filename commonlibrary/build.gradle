@@ -61,5 +61,6 @@ dependencies {
     api group: 'com.alibaba', name: 'fastjson', version: '1.2.62'
     //okhttp3的log日志
     api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    api 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
     annotationProcessor project(':arouter-compiler')
 }
