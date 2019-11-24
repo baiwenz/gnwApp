@@ -8,12 +8,19 @@ import java.util.Random;
 
 public class ProgressGenerator {
     public interface OnCompleteListener {
-
         public void onComplete();
     }
 
     private OnCompleteListener mListener;
     private int mProgress;
+
+    public int getmProgress() {
+        return mProgress;
+    }
+
+    public void setmProgress(int mProgress) {
+        this.mProgress = mProgress;
+    }
 
     public ProgressGenerator(OnCompleteListener listener) {
         mListener = listener;

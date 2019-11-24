@@ -446,6 +446,10 @@ public class RetrofitUtils {
         Flowable flowable = mBaseApiService.get(url,phoneNumber);
         requestCallBack(flowable, "", callBackListener);
     }
+    public static void login(String url, String username,String password,final OnRequestCallBackListener callBackListener) {
+        Flowable flowable = mBaseApiService.login(url,username,password);
+        requestCallBack(flowable, "", callBackListener);
+    }
     /**
      * get
      *

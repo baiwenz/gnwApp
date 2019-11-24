@@ -31,13 +31,15 @@ public interface BaseApiService {
     Flowable<ResponseBody> get(@Url String url);
     @GET()
     Flowable<ResponseBody> get(@Url String url,@Query("phoneNumber") String phoneNumber);
+
     @GET()
     Flowable<ResponseBody> get(@Url String url, @QueryMap Map<String, String> maps);
 
     @POST()
     @FormUrlEncoded
     Flowable<ResponseBody> post(@Url String url, @FieldMap Map<String, String> maps);
-
+    @POST()
+    Flowable<ResponseBody> login(@Url String url,@Query("username") String username,@Query("password") String password);
     @POST()
     Flowable<ResponseBody> postBody(@Url String url, @Body Object object);
 
