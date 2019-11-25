@@ -19,7 +19,7 @@
     <!--登录注册相关页面start-->
     <string name="account">用户名/邮箱/手机号</string>
     <string name="password">密码</string>
-    <string name="btn_login">登       录</string>
+    <string name="btn_login">请登录</string>
     <string name="register">手机快速注册</string>
     <string name="forgot_pass">忘记密码</string>
     <string name="login_byOther">第三方登录</string>

@@ -17,10 +17,11 @@ public class IndexListBRVAdapter extends BaseQuickAdapter<ListProductionBean, Ba
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, ListProductionBean item) {
-       /* helper.setText(R.id.iv_item_pic,item.getPic());*/
+        helper.setImageResource(R.id.iv_item_pic,item.getPic());
         helper.setText(R.id.tv_item_name,item.getName());
         helper.setText(R.id.tv_item_price_now,"$"+item.getPrice_now());
         helper.setText(R.id.tv_item_price_past,"$"+item.getPrice_post());
         helper.setText(R.id.tv_item_similar,"找相似");
+        helper.addOnClickListener(R.id.ll_index_list);
     }
 }

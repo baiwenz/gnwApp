@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.scwang.smartrefresh.layout.SmartRefreshLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/smart_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    >
     <LinearLayout
+        android:id="@+id/ll_index_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -27,6 +27,7 @@
             android:orientation="horizontal"
             android:background="@color/saoyisao_green"
             android:gravity="center_vertical"
+
             >
             <ImageView
                 android:layout_width="@dimen/px50"
@@ -35,6 +36,7 @@
                 android:src="@drawable/index_fruit"
                 />
             <TextView
+                android:id="@+id/tv_index_head_area"
                 android:layout_width="@dimen/px50"
                 android:layout_height="@dimen/px50"
                 android:layout_marginLeft="@dimen/px5"
@@ -49,7 +51,7 @@
                 android:src="@drawable/area_down"
                 />
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/px180"
                 android:layout_height="wrap_content"
 
                 />
@@ -63,15 +65,24 @@
 
 
         </LinearLayout>
+    </LinearLayout>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        >
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_index_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
 
-        </android.support.v7.widget.RecyclerView>
-    </LinearLayout>
-
+            />
 
 
-</com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+
+
+</LinearLayout>
