@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.mylibrary.bean.RoundImageView;
 import com.youth.banner.loader.ImageLoader;
 
 /**
@@ -16,4 +17,9 @@ public class GlideImageLoader extends ImageLoader {
         Glide.with(context).load(path).into(imageView);
     }
 
+    @Override
+    public ImageView createImageView(Context context) {
+        RoundImageView img = new RoundImageView(context);
+        return img;
+    }
 }
