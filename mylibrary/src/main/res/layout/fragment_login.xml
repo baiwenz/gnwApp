@@ -62,7 +62,7 @@
             custom:pb_colorProgress="@color/purple_progress"
             custom:pb_textComplete="登录成功"
             custom:pb_textProgress="登录中"
-            custom:pb_textError="Error"
+            custom:pb_textError="登录失败"
             custom:pb_colorError="@color/red_error" />
     </LinearLayout>
 

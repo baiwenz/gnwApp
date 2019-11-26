@@ -8,4 +8,8 @@ package com.example.commonlibrary.base;
 public class Constants {
     public static int currentFragment = 0;
     public static int loginCurrentFragment=0;
+    //动画进度
+    public final static int STATR=1;
+    public final static int ERROR=-1;
+    public final static int SUCCESS=100;
 }
