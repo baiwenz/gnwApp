@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/ll_search_parent_area"
+    >
+
+    <ImageView
+        android:id="@+id/iv_search_expand"
+        android:layout_width="@dimen/px40"
+        android:layout_height="@dimen/px40"
+        android:layout_marginLeft="@dimen/px15"
+        android:src="@drawable/ic_downexpand"
+        />
+    <TextView
+        android:id="@+id/tv_search_parent_area_name"
+        android:text="@string/area_zunyi"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/px40"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/px20"
+        android:layout_marginLeft="@dimen/px5"
+        />
+
+
+
+</LinearLayout>

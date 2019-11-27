@@ -36,6 +36,8 @@ dependencies {
     //适配器
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
 
+
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     annotationProcessor deps.butterknifeCompiler
     annotationProcessor project(':arouter-compiler')
     androidTestImplementation 'junit:junit:4.12'
