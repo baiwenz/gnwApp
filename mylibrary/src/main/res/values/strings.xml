@@ -44,9 +44,12 @@
     <!--登录注册相关页面end-->
 
     <!--首页头部-->
-    <string  name="area_zunyi">遵义</string>
+    <string name="area_zunyi">遵义</string>
     <string name="item_name">风骚大西瓜</string>
     <string name="item_price_now">$85</string>
     <string name="item_price_past">$100</string>
     <string name="item_similar">找相似</string>
+    <string name="area_tip">您正在看：</string>
+    <string name="last_looking">最近访问</string>
+    <string name="hot_spots">热门地点</string>
 </resources>

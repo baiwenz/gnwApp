@@ -1,15 +1,18 @@
 package com.example.mylibrary.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.app.FragmentTransaction;
+import android.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +29,8 @@ import com.example.mylibrary.adapter.IndexClassifyBRVAdapter;
 import com.example.mylibrary.adapter.IndexListBRVAdapter;
 import com.example.mylibrary.bean.IndexClassifyBean;
 import com.example.mylibrary.bean.ListProductionBean;
+
+import com.example.mylibrary.fragment.Index.LocatAreaActivity;
 import com.example.mylibrary.model.GlideImageLoader;
 import com.example.mylibrary.presenter.HomePresenter;
 import com.example.mylibrary.view.IHomeView;
@@ -36,7 +41,6 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
@@ -53,6 +57,9 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
     private RecyclerView recyclerView,indexHoriRecyclerView;
     private List<ListProductionBean> data;
     private List<IndexClassifyBean> indexClassdata;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+
 
     public static HomeFragment newInstance(String param1) {
         sHomeFragment = new HomeFragment();
@@ -77,6 +84,7 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
     @Override
     public void initView(View view) {
         init(view);
+        tvIndexHeadArea = view.findViewById(R.id.tv_index_head_area);
     }
 
     /**
@@ -140,18 +148,19 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
         recyclerView = view.findViewById(R.id.rv_index_content);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         adapter = new IndexListBRVAdapter(R.layout.item_fruit_home,null);
-        View view1 = LayoutInflater.from(getActivity()).inflate(R.layout.item_index_head,null,false);
-        initIndexHoriClassify(view1);
-        initSlideShow(view1);
+        View connectHead = LayoutInflater.from(getActivity()).inflate(R.layout.item_index_head,null,false);
+        initSlideShow(connectHead);
+        initIndexHoriClassify(connectHead);
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 Toast.makeText(getActivity(),"我是商品"+position,Toast.LENGTH_LONG).show();
             }
         });
-        adapter.addHeaderView(view1);
+        adapter.addHeaderView(connectHead);
         initThings();
         recyclerView.setAdapter(adapter);
+
 
     }
 
@@ -174,21 +183,11 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
         indexHoriRecyclerView.setAdapter(classifyBRVAdapter);
     }
 
-    /**
-     * 定位地区
-     */
-    private void initArea(View view){
-        tvIndexHeadArea = view.findViewById(R.id.tv_index_head_area);
-        tvIndexHeadArea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
-    }
     @Override
     public void initData() {
         basePresenter.getHomeData();
+        tvIndexHeadArea.setOnClickListener(this);
     }
 
     @Override
@@ -213,6 +212,11 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
     }
     @Override
     public void onClick(View v) {
+       if(v.getId() == R.id.tv_index_head_area){
+           Intent intent = new Intent(getActivity(), LocatAreaActivity.class);
+           startActivity(intent);
+       }
+
     }
 
     @Override
