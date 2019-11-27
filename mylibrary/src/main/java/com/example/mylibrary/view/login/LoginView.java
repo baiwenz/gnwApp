@@ -1,4 +1,4 @@
-package com.example.mylibrary.view;
+package com.example.mylibrary.view.login;
 
 import com.example.commonlibrary.utils.Result;
 import com.example.commonlibrary.view.BaseView;

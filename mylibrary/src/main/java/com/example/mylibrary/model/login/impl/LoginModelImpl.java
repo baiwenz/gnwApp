@@ -1,11 +1,11 @@
-package com.example.mylibrary.model.Impl;
+package com.example.mylibrary.model.login.impl;
 
 import com.example.commonlibrary.base.UrlConfig;
 import com.example.commonlibrary.http.RetrofitUtils;
 import com.example.commonlibrary.interfaces.OnCallBackListener;
 import com.example.commonlibrary.interfaces.OnRequestCallBackListener;
 import com.example.commonlibrary.utils.Result;
-import com.example.mylibrary.model.LoginModel;
+import com.example.mylibrary.model.login.LoginModel;
 
 public class LoginModelImpl implements LoginModel {
 

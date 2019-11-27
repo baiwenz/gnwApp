@@ -1,36 +1,32 @@
 package com.example.mylibrary.fragment.Login;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.dd.processbutton.iml.ActionProcessButton;
-import com.example.commonlibrary.ARouter.Constance;
-import com.example.commonlibrary.ARouter.LoginNavigationCallbackImpl;
 import com.example.commonlibrary.base.BaseFragment;
 import com.example.commonlibrary.base.Constants;
-import com.example.commonlibrary.presenter.BasePresenter;
 import com.example.commonlibrary.utils.ProgressGenerator;
 import com.example.commonlibrary.utils.Result;
 import com.example.mylibrary.R;
-import com.example.mylibrary.model.LoginModel;
-import com.example.mylibrary.presenter.LoginPresenter;
-import com.example.mylibrary.view.LoginView;
+import com.example.mylibrary.presenter.login.LoginPresenter;
+import com.example.mylibrary.view.login.LoginView;
 
-public class FragmentLogin extends BaseFragment<LoginView, LoginPresenter<LoginView>> implements LoginView, View.OnClickListener {
+public class FragmentLogin
+        extends BaseFragment<LoginView, LoginPresenter<LoginView>>
+        implements LoginView, View.OnClickListener {
     private LoginActivity loginActivity;
     private static FragmentLogin mFragmentLogin;
     private TextView mRegister;
     private TextView mForgotPwd;
     private ActionProcessButton btnSignIn;
     private EditText etUsername,etPassword;
+    private FragmentRegister mFragmentRegister;
+    private FragmentForgotPwd mFragmentForgotPwd;
     private ProgressGenerator progressGenerator = new ProgressGenerator();
     public static FragmentLogin newInstance(String param1) {
         mFragmentLogin = new FragmentLogin();
@@ -83,9 +79,11 @@ public class FragmentLogin extends BaseFragment<LoginView, LoginPresenter<LoginV
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.tv_register){
-            loginActivity.showFragment(1);
+            mFragmentRegister = FragmentRegister.newInstance("注册");
+            loginActivity.showFragment(mFragmentRegister);
         }else if(view.getId() == R.id.tv_forgot_pwd){
-            loginActivity.showFragment(4);
+            mFragmentForgotPwd = FragmentForgotPwd.newInstance("忘记密码");
+            loginActivity.showFragment(mFragmentForgotPwd);
         }else if (view.getId()==R.id.btn_login){
             login();
         }

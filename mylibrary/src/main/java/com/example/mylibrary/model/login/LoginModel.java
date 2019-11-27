@@ -1,4 +1,4 @@
-package com.example.mylibrary.model;
+package com.example.mylibrary.model.login;
 
 import com.example.commonlibrary.interfaces.OnCallBackListener;
 import com.example.commonlibrary.model.BaseModel;

@@ -19,7 +19,7 @@ public class FragmentVerifySafe extends BaseFragment implements View.OnClickList
     private Button mGetCode;
     private Button mCheckCode;
     private static FragmentVerifySafe mFragmentVerifySafe;
-
+    private FragmentFindLoginPwd mFragmentFindLoginPwd;
     public static FragmentVerifySafe newInstance(String param1) {
         mFragmentVerifySafe = new FragmentVerifySafe();
         Bundle args = new Bundle();
@@ -60,7 +60,8 @@ public class FragmentVerifySafe extends BaseFragment implements View.OnClickList
         if(v.getId() == R.id.btn_get_code){
             //发送验证码
         }else if(v.getId() ==R.id.btn_check_code){
-            loginActivity.showFragment(6);
+            mFragmentFindLoginPwd=FragmentFindLoginPwd.newInstance("找回密码");
+            loginActivity.showFragment(mFragmentFindLoginPwd);
         }
     }
 }

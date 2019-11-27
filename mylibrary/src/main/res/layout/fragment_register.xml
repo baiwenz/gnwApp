@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -52,15 +53,30 @@
         android:layout_marginTop="20dp"
         android:hint="请输入您的手机号"
         android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textCursorDrawable="@drawable/my_curcor"
         android:background="@drawable/bg_register"/>
 
-    <Button
+    <com.dd.processbutton.iml.ActionProcessButton
         android:id="@+id/btn_get_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edt_input_phone"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="@dimen/px20"
+        android:layout_marginTop="@dimen/px20"
         android:text="@string/btn_get_code"
-        android:background="@drawable/bg_btn"/>
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/edt_input_phone"
+        custom:pb_colorComplete="@color/green_complete"
+        custom:pb_colorNormal="@color/blue_normal"
+        custom:pb_colorPressed="@color/blue_pressed"
+        custom:pb_colorProgress="@color/purple_progress"
+        custom:pb_textComplete="发送成功"
+        custom:pb_textProgress="发送中"
+        custom:pb_textError="发送失败"
+        custom:pb_colorError="@color/red_error" />
 
 </RelativeLayout>

@@ -1,12 +1,11 @@
-package com.example.mylibrary.presenter;
+package com.example.mylibrary.presenter.login;
 
 import com.example.commonlibrary.interfaces.OnCallBackListener;
-import com.example.commonlibrary.model.BaseModel;
 import com.example.commonlibrary.presenter.BasePresenter;
 import com.example.commonlibrary.utils.Result;
-import com.example.mylibrary.model.Impl.LoginModelImpl;
-import com.example.mylibrary.model.LoginModel;
-import com.example.mylibrary.view.LoginView;
+import com.example.mylibrary.model.login.impl.LoginModelImpl;
+import com.example.mylibrary.model.login.LoginModel;
+import com.example.mylibrary.view.login.LoginView;
 
 public class LoginPresenter<T extends LoginView> extends BasePresenter<T> {
     LoginModel loginModel = new LoginModelImpl();

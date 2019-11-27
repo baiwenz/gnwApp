@@ -5,8 +5,9 @@ package com.example.commonlibrary.base;
  */
 
 public class UrlConfig {
-    public final static String BASEURL = "http://192.168.3.108:8080/";
+    public final static String BASEURL = "http://192.168.43.97:8080/";
     public final static String GET_MSG = "getMsg";
     public final static String LOGIN = "login";
     public static final boolean DEBUG = true;
+    public static final String POST_CODE = "/postCode";
 }

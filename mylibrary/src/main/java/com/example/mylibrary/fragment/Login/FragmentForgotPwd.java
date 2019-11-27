@@ -15,7 +15,7 @@ public class FragmentForgotPwd extends BaseFragment implements View.OnClickListe
     private LoginActivity loginActivity;
     private Button mCheckMsg;
     private static FragmentForgotPwd mFragmentForgotPwd;
-
+    private FragmentVerifySafe mFragmentVerifySafe;
     public static FragmentForgotPwd newInstance(String param1) {
         mFragmentForgotPwd = new FragmentForgotPwd();
         Bundle args = new Bundle();
@@ -51,7 +51,8 @@ public class FragmentForgotPwd extends BaseFragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.btn_check_msg){
-            loginActivity.showFragment(5);
+            mFragmentVerifySafe=FragmentVerifySafe.newInstance("安全验证");
+            loginActivity.showFragment(mFragmentVerifySafe);
         }
     }
 }
