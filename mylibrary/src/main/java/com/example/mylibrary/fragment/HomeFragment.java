@@ -57,8 +57,6 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
     private RecyclerView recyclerView,indexHoriRecyclerView;
     private List<ListProductionBean> data;
     private List<IndexClassifyBean> indexClassdata;
-    private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
 
 
     public static HomeFragment newInstance(String param1) {
