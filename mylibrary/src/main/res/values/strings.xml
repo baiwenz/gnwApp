@@ -52,4 +52,60 @@
     <string name="area_tip">您正在看：</string>
     <string name="last_looking">最近访问</string>
     <string name="hot_spots">热门地点</string>
+
+    <!--个人中心页面开始-->
+    <string name="nickname">小鬼跳鬼舞</string>
+    <string name="btn_edt">编辑</string>
+    <string name="tv_my_order">我的订单</string>
+    <string name="tv_find_all_orders">查看全部订单</string>
+    <string name="tv_pend_payment">待付款</string>
+    <string name="tv_pend_ship">待发货</string>
+    <string name="tv_ship">已发货</string>
+    <string name="tv_pend_evaluation">待评价</string>
+    <string name="tv_after_sale_service">售后服务</string>
+    <string name="tv_address_manger">地址管理</string>
+    <string name="tv_my_star">我的收藏</string>
+    <string name="tv_my_foot">我的足迹</string>
+    <string name="tv_coupon">优惠券</string>
+    <string name="tv_my_card_package">我的卡包</string>
+    <string name="tv_online_service">在线服务</string>
+    <string name="tv_help_center">帮助中心</string>
+
+    <string name="tv_setting">设置</string>
+    <string name="tv_account_and_safe">账户与安全</string>
+    <string name="tv_pay_setting">支付设置</string>
+    <string name="tv_comm">通用</string>
+    <string name="tv_private">隐私</string>
+    <string name="tv_about_software">关于软件</string>
+    <string name="tv_check_update">检查更新</string>
+    <string name="tv_contact_us">联系我们</string>
+    <string name="btn_account_switch">切换账号</string>
+    <string name="btn_logout">退出登录</string>
+
+    <string name="tv_setting_safe">安全设置</string>
+    <string name="tv_phone">手机号</string>
+    <string name="tv_phone_number">151****1275</string>
+    <string name="tv_setting_pwd">设置密码</string>
+    <string name="tv_login_device">其它设备登录</string>
+
+    <string name="tv_per_msg">个人信息</string>
+    <string name="tv_avatar">头像</string>
+    <string name="tv_nickname">昵称</string>
+    <string name="tv_for_nickname">小鬼跳鬼舞</string>
+    <string name="tv_sex">性别</string>
+    <string name="tv_for_sex">性别</string>
+    <string name="tv_birthday">出生日期</string>
+    <string name="tv_for_birthday">1997/10/18</string>
+    <string name="tv_signature">签名</string>
+    <string name="tv_for_signature">哇，张哥，你好棒棒呀！</string>
+
+    <string name="business_name">威宁土豆专卖店</string>
+    <string name="business_pro_description">来自威宁的乌蒙高原土豆纯天然无污染，买一个，买不了吃亏，买不了上当</string>
+    <string name="commodity_count">共2件商品</string>
+    <string name="price_count">合计：100.00元</string>
+    <string name="btn_delete_order">删除订单</string>
+    <string name="btn_see_logistics">查看物流</string>
+
+    <!--个人中心页面结束-->
+
 </resources>
