@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.mylibrary.R;
 
-public class PerCenterForOrderAdapter extends RecyclerView.Adapter<PerCenterForOrderAdapter.MyViewHolder> {
+public class PerCenterForOrdersAdapter extends RecyclerView.Adapter<PerCenterForOrdersAdapter.MyViewHolder> {
 
     @NonNull
     @Override

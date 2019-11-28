@@ -4,6 +4,8 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.commonlibrary.ARouter.Constance;
 import com.example.commonlibrary.base.BaseActivity;
 import com.example.commonlibrary.presenter.BasePresenter;
 import com.example.mylibrary.R;
@@ -24,8 +26,6 @@ public class PerCenterActivity extends BaseActivity {
     private PerCenterSettingFragment mPerCenterSettingFragment;
     private PerCenterSettingSafeFragment mPerCenterSettingSafeFragment;
     private PerCenterEditFragment mPerCenterEditFragment;
-    private PerCenterAllOrdersFragment mPerCenterAllOrdersFragment;
-
 
     private List<Integer> reBackFragment=new ArrayList<Integer>();
 
@@ -55,10 +55,6 @@ public class PerCenterActivity extends BaseActivity {
         }
         fragments.add(mPerCenterEditFragment);
 
-        if (mPerCenterAllOrdersFragment == null){
-            mPerCenterAllOrdersFragment = new PerCenterAllOrdersFragment();
-        }
-        fragments.add(mPerCenterAllOrdersFragment);
 
     }
 
