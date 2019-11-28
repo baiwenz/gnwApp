@@ -55,13 +55,8 @@ public class SearchAllAreaBRVAdapter extends BaseMultiItemQuickAdapter<MultiItem
                     break;
                 case TYPE_LEVEL_1:
                     final ProvinceBean.CityBean.AreasBean areasBean = (ProvinceBean.CityBean.AreasBean)item;
-                    helper.setText(R.id.tv_search_child_area_name,((ProvinceBean.CityBean.AreasBean) item).areaName);
-                    helper.itemView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
+                    helper.setText(R.id.tv_search_child_area_name,((ProvinceBean.CityBean.AreasBean) item).areaName).addOnClickListener(R.id.tv_search_child_area_name);
 
-                        }
-                    });
                     break;
                     default:
                         break;

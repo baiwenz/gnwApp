@@ -27,6 +27,7 @@ import com.example.commonlibrary.utils.WindowAttr;
 import com.example.mylibrary.R;
 import com.example.mylibrary.adapter.IndexClassifyBRVAdapter;
 import com.example.mylibrary.adapter.IndexListBRVAdapter;
+import com.example.mylibrary.adapter.SearchAllAreaBRVAdapter;
 import com.example.mylibrary.bean.IndexClassifyBean;
 import com.example.mylibrary.bean.ListProductionBean;
 
@@ -212,9 +213,18 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
     public void onClick(View v) {
        if(v.getId() == R.id.tv_index_head_area){
            Intent intent = new Intent(getActivity(), LocatAreaActivity.class);
-           startActivity(intent);
+           Bundle bundle = new Bundle();
+           String area = (String) tvIndexHeadArea.getText();
+           bundle.putString("area",area);
+           intent.putExtras(bundle);
+           startActivityForResult(intent,0);
        }
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
