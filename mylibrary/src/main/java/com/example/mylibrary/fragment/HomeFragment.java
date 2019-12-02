@@ -3,8 +3,6 @@ package com.example.mylibrary.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.app.FragmentTransaction;
-import android.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,7 +25,6 @@ import com.example.commonlibrary.utils.WindowAttr;
 import com.example.mylibrary.R;
 import com.example.mylibrary.adapter.IndexClassifyBRVAdapter;
 import com.example.mylibrary.adapter.IndexListBRVAdapter;
-import com.example.mylibrary.adapter.SearchAllAreaBRVAdapter;
 import com.example.mylibrary.bean.IndexClassifyBean;
 import com.example.mylibrary.bean.ListProductionBean;
 
@@ -82,8 +79,9 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
 
     @Override
     public void initView(View view) {
-        init(view);
         tvIndexHeadArea = view.findViewById(R.id.tv_index_head_area);
+        init(view);
+
     }
 
     /**
@@ -217,15 +215,11 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
            String area = (String) tvIndexHeadArea.getText();
            bundle.putString("area",area);
            intent.putExtras(bundle);
-           startActivityForResult(intent,0);
+           startActivity(intent);
        }
 
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
@@ -235,8 +229,9 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
     private void initThings(){
         data = new ArrayList<>();
         for(int i = 0;i<10;i++){
+            String area = (String) tvIndexHeadArea.getText();
             ListProductionBean listProductionBean = new ListProductionBean();
-            listProductionBean.setName("超级甜的小妹妹"+i);
+            listProductionBean.setName(area+":商品"+i);
             listProductionBean.setPic(R.drawable.heiheihei);
             listProductionBean.setPrice_now(20.23+i);
             listProductionBean.setPrice_post(100.00);
@@ -255,4 +250,6 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
         }
         classifyBRVAdapter.addData(indexClassdata);
     }
+
+
 }

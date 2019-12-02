@@ -10,12 +10,13 @@
             </intent-filter>-->
         </activity>
         <activity android:name=".fragment.per_center.PerCenterActivity">
-            <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".fragment.per_center.TabLayoutForOrdersActivity"></activity>
+        <activity android:name=".fragment.Index.LocatAreaActivity"></activity>
     </application>
 
 </manifest>

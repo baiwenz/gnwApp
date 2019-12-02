@@ -3,7 +3,7 @@ package com.example.mylibrary.bean;
 
 import com.chad.library.adapter.base.entity.AbstractExpandableItem;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.example.mylibrary.adapter.SearchAllAreaBRVAdapter;
+import com.example.mylibrary.adapter.LocatAllAreaBRVAdapter;
 
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class ProvinceBean  {
 
         @Override
         public int getItemType() {
-            return SearchAllAreaBRVAdapter.TYPE_LEVEL_0;
+            return LocatAllAreaBRVAdapter.TYPE_LEVEL_0;
         }
 
         @Override
@@ -54,7 +54,7 @@ public class ProvinceBean  {
 
             @Override
             public int getItemType() {
-                return SearchAllAreaBRVAdapter.TYPE_LEVEL_1;
+                return LocatAllAreaBRVAdapter.TYPE_LEVEL_1;
             }
         }
     }
