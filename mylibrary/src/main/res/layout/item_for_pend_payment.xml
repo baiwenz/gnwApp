@@ -33,7 +33,7 @@
         android:layout_marginRight="20dp">
 
         <ImageView
-            android:id="@+id/iv_potto"
+           android:id="@+id/iv_potto"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_alignParentLeft="true"
@@ -103,14 +103,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_delete_order"
+            android:text="@string/btn_change_address"
             android:background="@drawable/bg_btn_per_center"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_see_logistics"
+            android:text="@string/btn_cancel_order"
             android:background="@drawable/bg_btn_per_center"
             android:layout_marginLeft="10dp"/>
 
@@ -118,7 +118,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/tv_pend_evaluation"
+            android:text="@string/btn_pend_payment"
             android:background="@drawable/bg_btn_pend_ship"
             android:textColor="#ff6600"
             android:layout_marginLeft="10dp" />

@@ -33,7 +33,7 @@
         android:layout_marginRight="20dp">
 
         <ImageView
-            android:id="@+id/iv_potto"
+           android:id="@+id/iv_potto"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_alignParentLeft="true"

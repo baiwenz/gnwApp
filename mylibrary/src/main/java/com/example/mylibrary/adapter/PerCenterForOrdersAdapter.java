@@ -10,11 +10,17 @@ import com.example.mylibrary.R;
 
 public class PerCenterForOrdersAdapter extends RecyclerView.Adapter<PerCenterForOrdersAdapter.MyViewHolder> {
 
+    private int resource;
+
+    public PerCenterForOrdersAdapter(int resource){
+        this.resource = resource;
+    }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         // 指定对应的布局文件
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_for_all_orders, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(resource, viewGroup, false);
         return new MyViewHolder(view);
     }
 
